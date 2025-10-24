@@ -35,6 +35,8 @@ src/
   - **a11y addon** - アクセシビリティテスト
 - **Jest & React Testing Library** - テストフレームワーク
 - **CSS Modules** - コンポーネントスタイリング
+- **react-big-calendar** - カレンダーコンポーネント
+- **moment.js** - 日付操作ライブラリ
 - **Prettier** - コードフォーマッター
 - **ESLint** - コード品質チェック
 - **Husky + lint-staged** - Git フック管理
@@ -145,6 +147,46 @@ Lint エラーを自動修正：
 npm run lint:fix
 ```
 
+## 主要コンポーネント
+
+### TaskCalendar
+
+実績管理カレンダーコンポーネント。react-big-calendar を使用してタスクをカレンダー形式で表示します。
+
+**機能：**
+
+- タスクの視覚的な表示
+- タスクのクリックイベント
+- カスタマイズ可能な高さとタイトル
+- デザイントークンを使用したスタイリング
+
+**使用例：**
+
+```typescript
+import { TaskCalendar, Task } from '@/components/organisms'
+
+const tasks: Task[] = [
+  {
+    id: '1',
+    title: 'プロジェクト企画',
+    startDate: new Date(2024, 0, 15),
+    dueDate: new Date(2024, 0, 20),
+    description: 'プロジェクトの企画書を作成',
+  },
+]
+
+function MyPage() {
+  return (
+    <TaskCalendar
+      tasks={tasks}
+      onTaskClick={(task) => console.log(task)}
+      height="600px"
+      title="実績管理カレンダー"
+    />
+  )
+}
+```
+
 ## コンポーネント参照
 
 各階層のコンポーネントは、以下のように参照できます：
@@ -152,7 +194,7 @@ npm run lint:fix
 ```typescript
 import { Button, Input } from '@/components/atoms'
 import { FormField } from '@/components/molecules'
-import { LoginForm } from '@/components/organisms'
+import { LoginForm, TaskCalendar } from '@/components/organisms'
 import { AuthLayout } from '@/components/templates'
 import { LoginPage } from '@/components/pages'
 ```

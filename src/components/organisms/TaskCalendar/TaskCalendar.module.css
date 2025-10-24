@@ -1,0 +1,105 @@
+.container {
+  padding: var(--spacing-md);
+  width: 100%;
+}
+
+.title {
+  font-size: var(--font-size-2xl);
+  font-weight: var(--font-weight-bold);
+  color: var(--color-text-primary);
+  margin-bottom: var(--spacing-lg);
+  text-align: center;
+}
+
+.calendarWrapper {
+  background-color: var(--color-bg-default);
+  border-radius: var(--radius-md);
+  padding: var(--spacing-md);
+  box-shadow: var(--shadow-lg);
+}
+
+.calendar {
+  font-family: inherit;
+}
+
+/* カレンダーのカスタマイズ */
+:global(.rbc-calendar) {
+  font-family: inherit;
+}
+
+:global(.rbc-toolbar) {
+  padding: var(--spacing-md);
+  margin-bottom: var(--spacing-md);
+}
+
+:global(.rbc-toolbar button) {
+  padding: var(--spacing-xs) var(--spacing-md);
+  border: 1px solid var(--color-gray-300);
+  border-radius: var(--radius-sm);
+  background-color: var(--color-bg-default);
+  color: var(--color-text-primary);
+  font-size: var(--font-size-sm);
+  font-weight: var(--font-weight-medium);
+  cursor: pointer;
+  transition: var(--transition-base);
+}
+
+:global(.rbc-toolbar button:hover) {
+  background-color: var(--color-gray-100);
+  border-color: var(--color-gray-400);
+}
+
+:global(.rbc-toolbar button:active),
+:global(.rbc-toolbar button.rbc-active) {
+  background-color: var(--color-primary-600);
+  color: var(--color-text-inverse);
+  border-color: var(--color-primary-600);
+}
+
+:global(.rbc-header) {
+  padding: var(--spacing-sm);
+  font-weight: var(--font-weight-semibold);
+  color: var(--color-text-primary);
+  background-color: var(--color-gray-100);
+  border-bottom: 2px solid var(--color-gray-300);
+}
+
+:global(.rbc-today) {
+  background-color: var(--color-primary-50);
+}
+
+:global(.rbc-event) {
+  background-color: var(--color-primary-600);
+  border-radius: var(--radius-sm);
+  padding: var(--spacing-xs);
+  font-size: var(--font-size-sm);
+  transition: var(--transition-base);
+}
+
+:global(.rbc-event:hover) {
+  background-color: var(--color-primary-700);
+  box-shadow: var(--shadow-md);
+  cursor: pointer;
+}
+
+:global(.rbc-event-label) {
+  font-size: var(--font-size-xs);
+}
+
+:global(.rbc-month-view),
+:global(.rbc-time-view) {
+  border: 1px solid var(--color-gray-300);
+  border-radius: var(--radius-sm);
+}
+
+:global(.rbc-day-bg + .rbc-day-bg) {
+  border-left: 1px solid var(--color-gray-200);
+}
+
+:global(.rbc-month-row + .rbc-month-row) {
+  border-top: 1px solid var(--color-gray-200);
+}
+
+:global(.rbc-off-range-bg) {
+  background-color: var(--color-gray-50);
+}
