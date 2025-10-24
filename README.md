@@ -20,6 +20,7 @@ src/
 ```
 
 各コンポーネントフォルダには以下が含まれています：
+
 - `*.tsx` - コンポーネント本体
 - `*.test.tsx` - テストファイル
 - `*.stories.tsx` - Storybookファイル
@@ -31,7 +32,48 @@ src/
 - **React 19** - UIライブラリ
 - **TypeScript 5.7** - 型安全性
 - **Storybook 8.5** - コンポーネント開発環境
+  - **a11y addon** - アクセシビリティテスト
 - **Jest & React Testing Library** - テストフレームワーク
+- **CSS Modules** - コンポーネントスタイリング
+- **Prettier** - コードフォーマッター
+- **ESLint** - コード品質チェック
+- **Husky + lint-staged** - Git フック管理
+
+## スタイリング
+
+このプロジェクトは CSS Modules を使用してコンポーネントをスタイリングしています。
+
+### デザイントークン
+
+グローバルなデザイントークンは `src/styles/tokens.css` で定義されています：
+
+- カラーパレット（Primary, Secondary, Gray, Semantic）
+- スペーシング
+- フォントサイズと行の高さ
+- ボーダー半径
+- シャドウ
+- トランジション
+- z-index 値
+
+### CSS Modules の使用例
+
+```typescript
+import styles from './Component.module.css'
+
+export const Component = () => {
+  return <div className={styles.container}>Content</div>
+}
+```
+
+CSS ファイル内でデザイントークンを使用：
+
+```css
+.container {
+  padding: var(--spacing-md);
+  background-color: var(--color-bg-default);
+  border-radius: var(--radius-md);
+}
+```
 
 ## セットアップ
 
@@ -69,6 +111,38 @@ npm test
 
 ```bash
 npm run test:watch
+```
+
+カバレッジレポート付きでテストを実行：
+
+```bash
+npm run test:coverage
+```
+
+### コード品質
+
+コードをフォーマット：
+
+```bash
+npm run format
+```
+
+フォーマットをチェック：
+
+```bash
+npm run format:check
+```
+
+Lint を実行：
+
+```bash
+npm run lint
+```
+
+Lint エラーを自動修正：
+
+```bash
+npm run lint:fix
 ```
 
 ## コンポーネント参照
