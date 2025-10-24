@@ -22,24 +22,15 @@ export const LoginPage: React.FC<LoginPageProps> = ({ onLogin }) => {
         await onLogin(email, password)
       }
     } catch (error) {
-      setErrorMessage(
-        error instanceof Error ? error.message : 'ログインに失敗しました'
-      )
+      setErrorMessage(error instanceof Error ? error.message : 'ログインに失敗しました')
     } finally {
       setIsLoading(false)
     }
   }
 
   return (
-    <AuthLayout
-      title="ログイン"
-      subtitle="アカウントにログインしてください"
-    >
-      <LoginForm
-        onSubmit={handleSubmit}
-        isLoading={isLoading}
-        errorMessage={errorMessage}
-      />
+    <AuthLayout title="ログイン" subtitle="アカウントにログインしてください">
+      <LoginForm onSubmit={handleSubmit} isLoading={isLoading} errorMessage={errorMessage} />
     </AuthLayout>
   )
 }

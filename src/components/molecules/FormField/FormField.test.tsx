@@ -15,15 +15,8 @@ describe('FormField', () => {
   })
 
   it('エラーメッセージが表示される', () => {
-    render(
-      <FormField
-        label="メール"
-        errorMessage="有効なメールアドレスを入力してください"
-      />
-    )
-    expect(
-      screen.getByText('有効なメールアドレスを入力してください')
-    ).toBeInTheDocument()
+    render(<FormField label="メール" errorMessage="有効なメールアドレスを入力してください" />)
+    expect(screen.getByText('有効なメールアドレスを入力してください')).toBeInTheDocument()
   })
 
   it('Inputコンポーネントのpropsが正しく渡される', () => {

@@ -1,4 +1,5 @@
 import React from 'react'
+import styles from './Input.module.css'
 
 export interface InputProps {
   /**
@@ -40,36 +41,18 @@ export const Input: React.FC<InputProps> = ({
   onChange,
   label,
 }) => {
-  const inputStyles: React.CSSProperties = {
-    width: '100%',
-    padding: '10px 12px',
-    fontSize: '14px',
-    border: `1px solid ${error ? '#dc3545' : '#ced4da'}`,
-    borderRadius: '4px',
-    outline: 'none',
-    transition: 'border-color 0.2s',
-    backgroundColor: disabled ? '#e9ecef' : '#fff',
-    cursor: disabled ? 'not-allowed' : 'text',
-  }
-
-  const labelStyles: React.CSSProperties = {
-    display: 'block',
-    marginBottom: '6px',
-    fontSize: '14px',
-    fontWeight: 500,
-    color: '#495057',
-  }
+  const inputClassName = `${styles.input} ${error ? styles.error : ''}`
 
   return (
-    <div style={{ width: '100%' }}>
-      {label && <label style={labelStyles}>{label}</label>}
+    <div className={styles.container}>
+      {label && <label className={styles.label}>{label}</label>}
       <input
         type={type}
         placeholder={placeholder}
         value={value}
         disabled={disabled}
         onChange={onChange}
-        style={inputStyles}
+        className={inputClassName}
       />
     </div>
   )
